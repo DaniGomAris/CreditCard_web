@@ -11,37 +11,59 @@ view = Flask(__name__)
 # Ventana main(Menu)
 @view.route("/")
 def home():
+    """
+    Renderiza la página principal (index.html)
+    """
     return render_template("index.html")
 
 
+# http://127.0.0.1:5000/view/create_credit_card
 # Ventana para insertar nueva tarjeta de credito
-@view.route("/view/create-credit-card")
+@view.route("/view/create_credit_card")
 def view_new_credit_card():
-    return render_template("create-credit-card.html")
+    """
+    Renderiza la página para insertar una nueva tarjeta de crédito (create_credit_card.html)
+    """
+    return render_template("create_credit_card.html")
 
 
+# http://127.0.0.1:5000/view/simulate_purchase
 # Ventana para simular una compra
-@view.route("/view/simulate-purchase")
+@view.route("/view/simulate_purchase")
 def view_simulate_purchase():
-    return render_template("simulate-purchase.html")
+    """
+    Renderiza la página para simular una compra (simulate_purchase.html)
+    """
+    return render_template("simulate_purchase.html")
 
 
+# http://127.0.0.1:5000/view/payment_plan
 # Ventana para simular un plan de pago
-@view.route("/view/payment-plan")
+@view.route("/view/payment_plan")
 def view_payment_plan():
-    return render_template("payment-plan.html")
+    """
+    Renderiza la página para simular un plan de pago (payment_plan.html)
+    """
+    return render_template("payment_plan.html")
 
 
+# http://127.0.0.1:5000/view/view_payments
 # Ventana para obtener el pago en un rango de meses especifico
-@view.route("/view/view-payments")
+@view.route("/view/view_payments")
 def view_payments():
-    return render_template("view-payments.html")
+    """
+    Renderiza la página para obtener el pago en un rango de meses específico (view_payments.html)
+    """
+    return render_template("view_payments.html")
 
 
+# http://127.0.0.1:5000/view/insert/credit_card
 # Insertar nueva tarjeta de credito en la base de datos
-@view.route('/view/insert/credit-card')
+@view.route('/view/insert/credit_card')
 def view_insert_credit_card():
-
+    """
+    Inserta una nueva tarjeta de crédito en la base de datos
+    """
     try:
         card_number = request.args["card_number"]
         owner_id = request.args["owner_id"]
@@ -66,9 +88,13 @@ def view_insert_credit_card():
         return str(err)
 
 
+# http://127.0.0.1:5000/view/simulate/purchase
 # Simula una compra y muestra la cuota mensual, el interés total y el ahorro planificado sugerido.
 @view.route('/view/simulate/purchase')
 def view_show_purchase():
+    """
+    Simula una compra y muestra la cuota mensual, el interés total y el ahorro planificado sugerido
+    """
     try:
         card_number = request.args["card_number"]
         purchase_amount = float(request.args["purchase_amount"])
@@ -94,9 +120,13 @@ def view_show_purchase():
         return str(err)
 
 
+# http://127.0.0.1:5000/view/insert/payment_plan
 # Inserta un plan de pago en la base de datos
-@view.route('/view/insert/payment-plan')
+@view.route('/view/insert/payment_plan')
 def insert_payment_plan():
+    """
+    Inserta un plan de pago en la base de datos
+    """
     try:
         card_number = request.args["card_number"]
         purchase_amount = float(request.args["purchase_amount"])
@@ -113,9 +143,13 @@ def insert_payment_plan():
         return str(err)
 
 
+# http://127.0.0.1:5000/view/calc/payments
 # Muestra el pago total pendiente en un intervalo determinado de meses
 @view.route("/view/calc/payments")
 def calc_payments():
+    """
+    Muestra el pago total pendiente en un intervalo determinado de meses
+    """
     try:
         inintial_date = request.args["initial_date"]
         final_date = request.args["final_date"]
