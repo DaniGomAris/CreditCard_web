@@ -123,4 +123,6 @@ def simulate_payment_plan():
 
 
 if __name__ == '__main__':
+    ControllerCreditCard.create_table()
+    ControllerPaymentPlan.create_table()
     app.run(debug=True)
