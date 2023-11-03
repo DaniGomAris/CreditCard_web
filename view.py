@@ -53,6 +53,11 @@ def view_payments():
     """
     return render_template("view-payments.html")
 
+# http://127.0.0.1:5000/view/delete-credit-card
+# Ventana para eliminar una tarjeta de credito
+@view.route("/view/delete-credit-card")
+def view_delete_credit_card():
+    return render_template("delete-credit-card.html")
 
 # http://127.0.0.1:5000/view/insert/credit_card
 # Insertar nueva tarjeta de credito en la base de datos
@@ -117,9 +122,9 @@ def view_show_purchase():
         return str(err)
 
 
-# http://127.0.0.1:5000/view/insert/payment_plan
+# http://127.0.0.1:5000/view/insert/payment-plan
 # Inserta un plan de pago en la base de datos
-@view.route('/view/insert/payment_plan')
+@view.route('/view/insert/payment-plan')
 def insert_payment_plan():
     """
     Inserta un plan de pago en la base de datos
@@ -161,23 +166,22 @@ def calc_payments():
     except Exception as err:
         return str(err)
 
-@view.route("/view/calc/delete_credit_card")
-def delete_card():
-    """
-    Elimina una tarjeta de credito, indicando el numero de la tarjeta
-    """
+# http://127.0.0.1:5000/view/delete/credit-card
+# Muestra el pago total pendiente en un intervalo determinado de meses
+@view.route("/view/delete/credit-card")
+def delete_credit_card():
     try:
         card_number = request.args["card_number"]
+        ControllerCreditCard.delete_credit_card(card_number)
 
-        ControllerCreditCard.delete_single_credit_card(card_number)
-        
-        result: str = f"La tarjeta {card_number} eliminada correctamente"
+        result: str = f"Se eliminó exitosamente la tarjeta de crédito con número: {card_number}"
 
         return result
-        
-    except Exception as err
+
+    except Exception as err:
         return str(err)
-    
+
+
 
 if __name__ == '__main__':
     view.run(debug=True)
