@@ -1,5 +1,5 @@
 """
- Para que el proyecto funcione necesitas crear un archivo con el nombre de 'SecretConfig.py', copias y pegas la informacion de abajo y la llenas con tu informacion
+ Para que el proyecto funcione necesitas crear un archivo con el nombre de ' SecretConfig.py ', copias y pegas la informacion de abajo y la llenas con tu informacion
 """
 
 DATABASE = "ESCRIBA EL NOMBRE DE LA BASE DE DATOS"
