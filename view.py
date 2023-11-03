@@ -161,6 +161,23 @@ def calc_payments():
     except Exception as err:
         return str(err)
 
+@view.route("/view/calc/delete_credit_card")
+def delete_card():
+    """
+    Elimina una tarjeta de credito, indicando el numero de la tarjeta
+    """
+    try:
+        card_number = request.args["card_number"]
+
+        ControllerCreditCard.delete_single_credit_card(card_number)
+        
+        result: str = f"La tarjeta {card_number} eliminada correctamente"
+
+        return result
+        
+    except Exception as err
+        return str(err)
+    
 
 if __name__ == '__main__':
     view.run(debug=True)
