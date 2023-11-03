@@ -1,12 +1,9 @@
 from datetime import date
-
 from flask import Flask, request, jsonify, render_template
 from Controllers import ControllerCreditCard, ControllerPaymentPlan
 from Models.CreditCard import CreditCard
 
-
 view = Flask(__name__)
-
 
 # Ventana main(Menu)
 @view.route("/")
@@ -17,44 +14,44 @@ def home():
     return render_template("index.html")
 
 
-# http://127.0.0.1:5000/view/create_credit_card
+# http://127.0.0.1:5000/view/create-credit-card
 # Ventana para insertar nueva tarjeta de credito
-@view.route("/view/create_credit_card")
+@view.route("/view/create-credit-card")
 def view_new_credit_card():
     """
-    Renderiza la página para insertar una nueva tarjeta de crédito (create_credit_card.html)
+    Renderiza la página para insertar una nueva tarjeta de crédito (create-credit-card.html)
     """
-    return render_template("create_credit_card.html")
+    return render_template("create-credit-card.html")
 
 
-# http://127.0.0.1:5000/view/simulate_purchase
+# http://127.0.0.1:5000/view/simulate-purchase
 # Ventana para simular una compra
-@view.route("/view/simulate_purchase")
+@view.route("/view/simulate-purchase")
 def view_simulate_purchase():
     """
-    Renderiza la página para simular una compra (simulate_purchase.html)
+    Renderiza la página para simular una compra (simulate-purchase.html)
     """
-    return render_template("simulate_purchase.html")
+    return render_template("simulate-purchase.html")
 
 
-# http://127.0.0.1:5000/view/payment_plan
+# http://127.0.0.1:5000/view/payment-plan
 # Ventana para simular un plan de pago
-@view.route("/view/payment_plan")
+@view.route("/view/payment-plan")
 def view_payment_plan():
     """
-    Renderiza la página para simular un plan de pago (payment_plan.html)
+    Renderiza la página para simular un plan de pago (payment-plan.html)
     """
-    return render_template("payment_plan.html")
+    return render_template("payment-plan.html")
 
 
-# http://127.0.0.1:5000/view/view_payments
+# http://127.0.0.1:5000/view/view-payments
 # Ventana para obtener el pago en un rango de meses especifico
-@view.route("/view/view_payments")
+@view.route("/view/view-payments")
 def view_payments():
     """
-    Renderiza la página para obtener el pago en un rango de meses específico (view_payments.html)
+    Renderiza la página para obtener el pago en un rango de meses específico (view-payments.html)
     """
-    return render_template("view_payments.html")
+    return render_template("view-payments.html")
 
 
 # http://127.0.0.1:5000/view/insert/credit_card
