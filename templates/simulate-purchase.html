@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <title>Eliminar</title>
-
+    <title>Simular compra</title>
     <style>
         body {
             display: flex;
@@ -13,10 +13,6 @@
             height: 100vh;
             margin: 0;
             font-family: 'Verdana', sans-serif;
-        }
-
-        h1 {
-            font-size: 2em;
         }
 
         ul {
@@ -39,23 +35,34 @@
             color: inherit;
         }
     </style>
-
 </head>
-<body>
-    <h1>Eliminar tarjeta de crédito</h1>
 
-    <form action="/view/delete/credit-card">
+<body>
+    <h1>Simular compra</h1>
+    <p>Ingresa los datos de la compra: </p>
+    <br>
+    <form action = "/view/simulate/purchase">
         <div>
-            Número de la tarjeta de credito que desea borrar: <input type="text" name="card_number">
+            Numero de la tarjeta de credito con la que va a realizar la compra: <input type = "text" name = "card_number">
         </div>
 
-        <input type="submit" value="Eliminar">
+        <div>
+            Monto total: <input type = "number" step = "0.01" name = "purchase_amount">
+        </div>
+
+        <div>
+            Numero de cuotas: <input type = "number" name = "payments">
+        </div>
+
+        <br>
+
+        <div>
+            <input type = "submit" value = "Guardar">
+        </div>
 
         <div>
             <button><a href="/">Menu</a></button>
         </div>
     </form>
-
-
 </body>
 </html>

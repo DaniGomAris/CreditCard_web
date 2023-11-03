@@ -174,7 +174,7 @@ def delete_credit_card():
         card_number = request.args["card_number"]
         ControllerCreditCard.delete_credit_card(card_number)
 
-        result: str = f"Se eliminó exitosamente la tarjeta de crédito con número: {card_number}"
+        result: str = f"la tarjeta: {card_number}, se elimino correctamente"
 
         return result
 

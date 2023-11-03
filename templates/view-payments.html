@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Eliminar</title>
+    <title>Title</title>
 
     <style>
         body {
@@ -13,10 +13,6 @@
             height: 100vh;
             margin: 0;
             font-family: 'Verdana', sans-serif;
-        }
-
-        h1 {
-            font-size: 2em;
         }
 
         ul {
@@ -39,23 +35,29 @@
             color: inherit;
         }
     </style>
-
 </head>
 <body>
-    <h1>Eliminar tarjeta de crédito</h1>
+    <h1>Pagos pendientes</h1>
+    <p>Ingrese el rango de fecha en el que quiere consultar los pagos pendientes:</p>
 
-    <form action="/view/delete/credit-card">
-        <div>
-            Número de la tarjeta de credito que desea borrar: <input type="text" name="card_number">
-        </div>
+    <form action="/view/calc/payments">
 
-        <input type="submit" value="Eliminar">
+    <div>
+        Desde: <input type="date" name="initial_date">
+    </div>
 
-        <div>
-            <button><a href="/">Menu</a></button>
-        </div>
+    <div>
+        Hasta: <input type="date" name="final_date">
+    </div>
+
+    <br>
+
+    <input type="submit" value="Consultar">
+
+    <div>
+        <button><a href="/">Menu</a></button>
+    </div>
     </form>
-
 
 </body>
 </html>
